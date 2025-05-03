@@ -1,0 +1,227 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f0f4f8;
+    color: #334155;
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+.controls {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+button {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lock-btn { background: #4CAF50; }
+.lock-btn.locked { background: #f44336; }
+.add-section-btn { background: #9c27b0; }
+.export-btn { background: #ff9800; }
+.reset-btn { background: #607d8b; }
+button:hover { filter: brightness(90%); }
+
+.roadmap {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.roadmap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50px;
+    width: 6px;
+    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+    border-radius: 3px;
+}
+
+.stage {
+    margin-bottom: 2.5rem;
+    margin-left: 80px;
+    position: relative;
+}
+
+.stage::before {
+    content: '';
+    position: absolute;
+    left: -46px;
+    top: 20px;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border: 4px solid #3b82f6;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.stage-content {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+}
+
+.stage-content:hover {
+    transform: translateY(-5px) translateX(10px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+}
+
+.stage-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px dashed #e5e7eb;
+    padding-bottom: 1rem;
+}
+
+.section-icon {
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+}
+
+.section-title {
+    font-weight: 700;
+    font-size: 1.5em;
+    color: #1e3a8a;
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    padding: 8px 12px;
+    transition: 0.2s;
+}
+
+.section-title:focus {
+    outline: none;
+    border-bottom-color: #3b82f6;
+}
+
+.move-buttons {
+    display: flex;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.move-buttons button {
+    padding: 5px 10px;
+    background: #607d8b;
+}
+
+.tasks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.task {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 3px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task:hover {
+    background: #f1f5f9;
+    transform: translateY(-3px);
+    border-bottom-color: #3b82f6;
+}
+
+.task input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.task input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    font-weight: 500;
+    outline: none;
+}
+
+.task-content {
+    font-weight: 500;
+}
+
+.task-description {
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(255,255,255,0.9);
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+}
+
+.task:hover .task-description {
+    max-height: 200px;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    border-top: 1px dashed #cbd5e1;
+}
+
+.add-task-btn {
+    margin-top: 1rem;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.add-task-btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    body { padding: 1rem; }
+    .roadmap::before { left: 25px; }
+    .stage { margin-left: 50px; }
+    .stage::before { left: -36px; }
+    .tasks {
+        grid-template-columns: 1fr;
+    }
+}
