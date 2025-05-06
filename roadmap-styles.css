@@ -155,6 +155,7 @@ button:hover { filter: brightness(90%); }
     overflow: hidden;
     border-bottom: 3px solid #e2e8f0;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 10px;
 }
@@ -182,19 +183,31 @@ button:hover { filter: brightness(90%); }
 }
 
 .task-description {
-    max-height: 0;
-    overflow: hidden;
-    background: rgba(255,255,255,0.9);
+    width: 100%;
     margin-top: 0.5rem;
-    border-radius: 8px;
-    transition: all 0.4s ease;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.task:hover .task-description {
-    max-height: 200px;
-    padding: 0.8rem;
-    margin-top: 1rem;
-    border-top: 1px dashed #cbd5e1;
+.task-description textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    background: #fff;
+    resize: vertical;
+}
+
+.task-controls {
+    margin-left: auto;
+    display: flex;
+    gap: 5px;
+}
+
+.task-controls button {
+    padding: 5px 10px;
+    background: #ef4444;
 }
 
 .add-task-btn {
@@ -224,4 +237,28 @@ button:hover { filter: brightness(90%); }
     .tasks {
         grid-template-columns: 1fr;
     }
+}
+/* 1) Принудительно скрываем старые тулбары */
+.formatting-toolbar {
+    display: none !important;
+}
+
+/* 2) Стили для контекстного меню */
+.custom-context-menu {
+    position: absolute;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 5px 0;
+    z-index: 1000;
+    min-width: 120px;
+    font-size: 0.9rem;
+}
+.custom-context-menu__item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+.custom-context-menu__item:hover {
+    background: #f1f5f9;
 }
